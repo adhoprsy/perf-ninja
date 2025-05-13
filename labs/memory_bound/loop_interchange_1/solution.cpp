@@ -21,7 +21,29 @@ void identity(Matrix &result) {
     result[i][i] = 1;
   }
 }
+#ifdef SOLUTION
+// Multiply two square matrices
+void multiply(Matrix &result, const Matrix &a, const Matrix &b) {
+  zero(result);
+  constexpr int tile_num = 16;
 
+  for (int _i = 0; _i < N / tile_num; ++_i)
+    for (int _j = 0; _j < N / tile_num; ++_j) {
+      for (int _k = 0; _k < N / tile_num; ++_k) {
+
+        for (int i = 0; i < tile_num; i++) {
+          for (int j = 0; j < tile_num; j++) {
+            for (int k = 0; k < tile_num; k++) {
+              result[_i * tile_num + i][_j * tile_num + j] +=
+                  a[_i * tile_num + i][_k * tile_num + k] *
+                  b[_k * tile_num + k][_j * tile_num + j];
+            }
+          }
+        }
+      }
+    }
+}
+#else
 // Multiply two square matrices
 void multiply(Matrix &result, const Matrix &a, const Matrix &b) {
   zero(result);
@@ -34,7 +56,7 @@ void multiply(Matrix &result, const Matrix &a, const Matrix &b) {
     }
   }
 }
-
+#endif
 // Compute integer power of a given square matrix
 Matrix power(const Matrix &input, const uint32_t k) {
   // Temporary products
