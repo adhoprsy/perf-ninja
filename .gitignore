@@ -24,6 +24,7 @@ build
 results.json
 /tools/benchmark/
 
+.cache
 .venv
 baselineBuild*
 solutionBuild*
