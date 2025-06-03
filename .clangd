@@ -4,3 +4,6 @@ CompileFlags:
     - "-I/usr/local/include"
     - "-L/usr/local/lib"
     - "-lbenchmark"
+    - "-I/opt/homebrew/Cellar/libomp/20.1.5/include"
+    - "-L/opt/homebrew/Cellar/libomp/20.1.5/lib"
+    - "-llibomp"

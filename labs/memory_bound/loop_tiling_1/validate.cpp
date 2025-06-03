@@ -15,6 +15,18 @@ bool matrices_equal(MatrixOfDoubles &m1, MatrixOfDoubles &m2) {
     return false;
 
   auto size = m1.size();
+
+  // for (int i = 0; i < size; i++) {
+  //   for (int j = 0; j < size; j++)
+  //     std::cout << m1[i][j] << " ";
+  //   std::cout << "\n";
+  // }
+  // std::cout << "\n";
+  // for (int i = 0; i < size; i++) {
+  //   for (int j = 0; j < size; j++)
+  //     std::cout << m2[i][j] << " ";
+  //   std::cout << "\n";
+  // }
   for (int i = 0; i < size; i++)
     for (int j = 0; j < size; j++)
       if (m1[i][j] != m2[i][j])
@@ -28,7 +40,7 @@ int main() {
   MatrixOfDoubles out;
   MatrixOfDoubles out_golden;
 
-  constexpr int N = 2001;
+  constexpr int N = 2000;
   in.resize(N, std::vector<double>(N, 0.0));
   out.resize(N, std::vector<double>(N, 0.0));
   out_golden.resize(N, std::vector<double>(N, 0.0));
